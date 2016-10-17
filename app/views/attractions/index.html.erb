@@ -1,0 +1,14 @@
+<h1>Attractions INDEX</h1>
+
+<% @attractions.each do |attraction| %>
+  <%= attraction.name %>
+  <% if @logged_in && @user.admin %>
+    <%= link_to "Show #{attraction.name}", attraction_path(attraction) %>
+  <% else %>
+    <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+  <% end %>
+<% end %>
+
+<% if @logged_in && @user.admin %>
+  <%= link_to "New Attraction", new_attraction_path %>
+  <% end %>

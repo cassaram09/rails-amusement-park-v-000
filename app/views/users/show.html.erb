@@ -1,0 +1,25 @@
+<h1>Your Profile</h1>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+Name: <%= @user.name %>
+Height: <%= @user.height %>
+
+Happiness: <%= @user.happiness %>
+
+Nausea: <%= @user.nausea %>
+
+Mood: <%= @user.mood %>
+
+Tickets: <%= @user.tickets %>
+
+<%= "ADMIN" if  @user.admin  %>
+
+<%= link_to "Edit", edit_user_path(@user) %>
+
+<%= link_to "Log Out", logout_path, method: 'delete' %>
+
+<%= link_to "See attractions", attractions_path %>
+
